@@ -12,6 +12,7 @@
     "experimentalDecorators": true,
     "baseUrl": ".", // 如果写 src 会出现 @ 无法正常指向
     "jsx": "preserve",
+    "jsxFactory": "VueTsxSupport",
     "paths": {
       "~/*": ["./src/*"], // 根据项目实际情况
       "@/*": ["./src/*"]

@@ -30,7 +30,7 @@
     "stdver": "standard-version -m '[skip ci] chore(release): v%s'",
     "release": "gren release --override",
     "lint": "eslint \"src/**/*.@(js|ts|vue)\" --ignore-path .gitignore . --fix && stylelint src/**/*.{vue,less} --fix",
-		"e2e": "cypress open --env config=local",
+    "e2e": "cypress open --env config=local",
     "e2e:ci": "cypress run --env config=uat"
   },
   "dependencies": {
@@ -78,7 +78,8 @@
     "standard-version": "6.0.1",
     "stylelint": "9.10.1",
     "stylelint-config-standard": "18.3.0",
-    "svg-sprite-loader": "^4.1.6"
+    "svg-sprite-loader": "^4.1.6",
+    "vue-tsx-support": "^3.0.2"
   },
   "husky": {
     "hooks": {
