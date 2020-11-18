@@ -1,0 +1,113 @@
+{
+  "name": "ts-nuxt-admin",
+  "version": "2.4.2",
+  "description": "Nuxt2 + element UI project",
+  "authors": [
+    "levy <levy9527@qq.com>",
+    "Han <xsytby1112@gmail.com>",
+    "donaldshen <825870831@qq.com>"
+  ],
+  "keywords": [
+    "vue",
+    "nuxt",
+    "admin",
+    "dashboard",
+    "element-ui"
+  ],
+  "private": true,
+  "engines": {
+    "node": ">= 14",
+    "npm": ">= 5.2.0"
+  },
+  "scripts": {
+    "mock": "cross-env MODE=mock nuxt",
+    "dev": "cross-env MODE=dev nuxt",
+    "mock:nologin": "cross-env MODE=mock NO_LOGIN=1 nuxt",
+    "dev:nologin": "cross-env MODE=dev NO_LOGIN=1 nuxt",
+    "build": "cross-env MODE=prod nuxt build",
+    "test": "jest",
+    "start": "cross-env HOST=0.0.0.0 PORT=3333 MODE=prod nuxt start",
+    "stdver": "standard-version -m '[skip ci] chore(release): v%s'",
+    "release": "gren release --override",
+    "lint": "eslint \"src/**/*.@(js|ts|vue)\" --ignore-path .gitignore . --fix && stylelint src/**/*.{vue,less} --fix",
+		"e2e": "cypress open --env config=local",
+    "e2e:ci": "cypress run --env config=uat"
+  },
+  "dependencies": {
+    "@femessage/el-data-table": "latest",
+    "@femessage/el-form-renderer": "latest",
+    "@femessage/element-ui": "latest",
+    "@femessage/upload-to-ali": "latest",
+    "@femessage/v-img": "latest",
+    "@nuxtjs/axios": "5.12.2",
+    "@nuxtjs/google-analytics": "2.4.0",
+    "@nuxtjs/pwa": "3.2.2",
+    "@nuxtjs/style-resources": "0.1.2",
+    "dayjs": "1.8.18",
+    "js-cookie": "2.2.1",
+    "less": "3.9.0",
+    "less-loader": "4.1.0",
+    "nuxt": "2.14.7"
+  },
+  "devDependencies": {
+    "@babel/core": "7.8.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "7.8.3",
+    "@babel/preset-env": "7.8.7",
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "@femessage/types": "latest",
+    "@nuxt/types": "2.14.7",
+    "@nuxt/typescript-build": "2.0.3",
+    "@nuxtjs/eslint-config-typescript": "5.0.0",
+    "babel-jest": "24.9.0",
+    "cross-env": "5.2.1",
+    "cypress": "5.6.0",
+    "eslint": "7.13.0",
+    "eslint-config-prettier": "6.15.0",
+    "eslint-friendly-formatter": "4.0.1",
+    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-jest": "24.1.3",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "github-release-notes": "0.17.1",
+    "husky": "1.3.1",
+    "jest": "24.9.0",
+    "lint-staged": "8.2.1",
+    "prettier": "1.18.2",
+    "standard-version": "6.0.1",
+    "stylelint": "9.10.1",
+    "stylelint-config-standard": "18.3.0",
+    "svg-sprite-loader": "^4.1.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+      "post-commit": "git update-index --again"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,ts,vue}": [
+        "eslint --fix",
+        "git add"
+      ],
+      "*.{vue,less}": [
+        "stylelint --fix",
+        "git add"
+      ],
+      "*.{md,json}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "test/**/*expect.vue"
+    ]
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "create-nuxt-app": "2.2.1"
+}
